@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Role extends Model
 {
     use HasFactory;
 
 
     /**
-     * Get the post that owns the comment.
+     * The users that belong to the role.
      */
-    public function post()
+    public function users()
     {
-        return $this->belongsTo(Post::class, 'post_id', 'id');
+        return $this->belongsToMany(User::class);
     }
 
 }
