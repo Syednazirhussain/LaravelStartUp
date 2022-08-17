@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Phone;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the phone associated with the user.
+    */
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
+
 }
