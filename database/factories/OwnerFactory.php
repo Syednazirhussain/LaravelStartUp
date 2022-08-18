@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Car;
-use App\Models\Owner;
 namespace Database\Factories;
 
+use App\Models\Car;
+use App\Models\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OwnerFactory extends Factory
@@ -27,7 +27,7 @@ class OwnerFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'car_id'   => $this->faker->randomElement($cars);
+            'car_id'   => $this->faker->randomElement($cars)
         ];
     }
 }

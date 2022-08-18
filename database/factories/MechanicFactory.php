@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Mechanic;
 namespace Database\Factories;
 
+use App\Models\Mechanic;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MechanicFactory extends Factory

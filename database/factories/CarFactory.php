@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Car;
-use App\Models\Mechanic;
 namespace Database\Factories;
 
+use App\Models\Car;
+use App\Models\Mechanic;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CarFactory extends Factory
