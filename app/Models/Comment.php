@@ -9,7 +9,6 @@ class Comment extends Model
 {
     use HasFactory;
 
-
     /**
      * Get the post that owns the comment.
      */

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Post;
+use App\Models\Image;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
 
@@ -81,7 +82,7 @@ class HomeController extends Controller
     }
     
     /**
-     * Show the application dashboard.
+     * One To One (Polymorphic).
      *
      * @return \Illuminate\Contracts\Support\Renderable
     */
@@ -94,12 +95,15 @@ class HomeController extends Controller
     }
     
     /**
-     * Show the application dashboard.
+     * One To One (Polymorphic).
      *
      * @return \Illuminate\Contracts\Support\Renderable
     */
     public function imagablePost(Request $request)
     {
+        // $image = Image::find(1);
+        // dd($image->imageable);
+
         $post_id = $request->get('id');
         $post = Post::whereId($post_id)->first();
 
