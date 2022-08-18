@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Post;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
 
@@ -79,8 +80,32 @@ class HomeController extends Controller
         return response()->json($role);
     }
     
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function imagableUser(Request $request)
+    {
+        $user_id = $request->get('id');
+        $user = User::whereId($user_id)->first();
 
-
+        return response()->json(["image" => $user->image ]);
+    }
     
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function imagablePost(Request $request)
+    {
+        $post_id = $request->get('id');
+        $post = Post::whereId($post_id)->first();
+
+        return response()->json(["image" => $post->image ]);
+    }
+    
+
 
 }

@@ -24,3 +24,5 @@ Route::get('/hasOneThrough', 'HomeController@exampleHasOneThrough')->name('examp
 Route::get('/hasManyThrough', 'HomeController@exampleHasManyThrough')->name('exampleHasManyThrough');
 Route::get('/userRoles', 'HomeController@getUserRoles')->name('getUserRoles');
 Route::get('/roles', 'HomeController@getRoles')->name('getRoles');
+Route::get('/imagableUser', 'HomeController@imagableUser')->name('imagableUser');
+Route::get('/imagablePost', 'HomeController@imagablePost')->name('imagablePost');

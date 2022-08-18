@@ -61,5 +61,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_users');
     }
 
+    /**
+     * Get the user's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
 }
