@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Mechanic;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -25,4 +28,59 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function exampleHasOneThrough()
+    {
+        $mechanics = Mechanic::whereId(3)->with('carOwner')->first();
+
+        return response()->json($mechanics);
+    }
+    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function exampleHasManyThrough()
+    {
+        $mechanics = Mechanic::whereId(3)->with('carOwners')->first();
+
+        return response()->json($mechanics);
+    }
+    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function getUserRoles(Request $request)
+    {
+        $user_id = $request->get('id');
+        $user = User::whereId($user_id)->with('roles')->first();
+
+        return response()->json($user);
+    }
+    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function getRoles(Request $request)
+    {
+        $role_id = $request->get('id');
+        $role = Role::whereId($role_id)->with('users')->first();
+
+        return response()->json($role);
+    }
+    
+
+
+    
+
 }
