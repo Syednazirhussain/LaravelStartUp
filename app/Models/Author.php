@@ -36,4 +36,12 @@ class Author extends Model
         'active',
     ];
 
+    /**
+     * The roles that belong to the user.
+     */
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
 }

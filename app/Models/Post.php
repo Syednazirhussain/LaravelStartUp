@@ -17,6 +17,13 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
     
+    /**
+     * The roles that belong to the user.
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'user_id');
+    }
 
     /**
      * Get the post's image.

@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Post;
 use App\Models\Image;
+use App\Models\Book;
+use App\Models\Author;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
 
@@ -108,6 +110,33 @@ class HomeController extends Controller
         $post = Post::whereId($post_id)->first();
 
         return response()->json(["image" => $post->image ]);
+    }
+    
+    /**
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function author(Request $request)
+    {
+        /*
+        $author_id = $request->get('id');
+        $author = Author::whereId($author_id)->with('books')->first();
+        */
+
+        $authors = Author::with('books')->get();
+
+        return response()->json($authors);
+    }
+    
+    /**
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function books()
+    {
+        $books = Book::with('author')->get();
+
+        return response()->json($books);
     }
     
 

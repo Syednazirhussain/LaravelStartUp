@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use BeyondCode\Vouchers\Traits\HasVouchers;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory, HasVouchers;
 
     /**
      * The table associated with the model.
@@ -32,8 +33,17 @@ class Book extends Model
     protected $fillable = [
         'title',
         'description',
+        'author_id',
         'book_type',
         'price',
     ];
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id');
+    }    
 
 }

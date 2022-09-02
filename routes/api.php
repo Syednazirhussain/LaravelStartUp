@@ -18,5 +18,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Route::group(['middleware' => ['api', 'throttle:3,1']], function ($router) {
+Route::group(['middleware' => ['api']], function ($router) {
 
-Route::get('/authors', [App\Http\Controllers\AuthorController::class, 'index'])->name('index');
+    Route::post('login', 'LoginController@login');
+    Route::post('logout', 'LoginController@logout');
+    Route::post('refresh', 'LoginController@refresh');
+    Route::post('me', 'LoginController@me');
+
+});
+
