@@ -36,8 +36,14 @@ Route::get('/imagableUser', 'HomeController@imagableUser')->name('imagableUser')
 Route::get('/imagablePost', 'HomeController@imagablePost')->name('imagablePost');
 
 
+Route::get('/chats', 'ChatsController@index')->name('chat.index');
+Route::get('/messages', 'ChatsController@fetchMessages');
+Route::post('/messages', 'ChatsController@sendMessage');
+
+
 Route::resource('cars', 'CarController', [
     'names' => [
         'index' => 'car.index',
     ]
 ]);
+

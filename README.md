@@ -28,3 +28,5 @@ https://beyondco.de/docs/laravel-websockets/getting-started/introduction
 
 https://www.youtube.com/watch?v=H_4UubWE9NQ
 https://www.youtube.com/watch?v=OHhvhMUWB9g
+
+https://github.com/qirolab/Laravel-WebSockets-Chat-Example

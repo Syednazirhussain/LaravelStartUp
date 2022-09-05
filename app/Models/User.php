@@ -75,6 +75,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Post::class);
     }
+    
+    /**
+     * The roles that belong to the user.
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 
     /**
      * Get the phone associated with the user.
