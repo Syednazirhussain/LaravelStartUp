@@ -26,7 +26,8 @@ https://www.itsolutionstuff.com/post/laravel-scout-algolia-search-exampleexample
 https://devdojo.com/bobbyiliev/how-to-use-laravel-websockets
 https://beyondco.de/docs/laravel-websockets/getting-started/introduction
 
-https://www.youtube.com/watch?v=H_4UubWE9NQ
-https://www.youtube.com/watch?v=OHhvhMUWB9g
+### Tutorial
+https://www.youtube.com/playlist?list=PL1TrjkMQ8UbWfFUCimQ50CdrR_J7QvEFW
 
+### Code
 https://github.com/qirolab/Laravel-WebSockets-Chat-Example
