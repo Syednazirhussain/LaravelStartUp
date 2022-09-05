@@ -30,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        broadcast(new \App\Events\NewTrade("some data"));
         return view('home');
     }
     

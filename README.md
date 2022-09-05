@@ -21,5 +21,10 @@ https://github.com/beyondcode/laravel-vouchers
 
 https://www.itsolutionstuff.com/post/laravel-scout-algolia-search-exampleexample.html
 
-## Laravel Rate Limiter
+## Laravel Web Socket
 
+https://devdojo.com/bobbyiliev/how-to-use-laravel-websockets
+https://beyondco.de/docs/laravel-websockets/getting-started/introduction
+
+https://www.youtube.com/watch?v=H_4UubWE9NQ
+https://www.youtube.com/watch?v=OHhvhMUWB9g
