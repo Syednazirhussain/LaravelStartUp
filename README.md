@@ -15,6 +15,7 @@ https://www.codewithharry.com/blogpost/mongodb-cheatsheet/
 ## Laravel Vouchers
 
 https://laravel-news.com/laravel-vouchers
+
 https://github.com/beyondcode/laravel-vouchers
 
 ## Laravel Scout 
@@ -24,6 +25,7 @@ https://www.itsolutionstuff.com/post/laravel-scout-algolia-search-exampleexample
 ## Laravel Web Socket
 
 https://devdojo.com/bobbyiliev/how-to-use-laravel-websockets
+
 https://beyondco.de/docs/laravel-websockets/getting-started/introduction
 
 #### Tutorial
