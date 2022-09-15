@@ -17,6 +17,10 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
+Broadcast::channel('notify.{email}', function ($user, $email) {
+    return ($email === "mohammadhamza180@gmail.com");
+});
+
 Broadcast::channel('chat', function ($user) {
     return $user;
 });

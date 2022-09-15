@@ -6,7 +6,7 @@
                 <div class="card-header">Messages</div>
                 <div class="card-body p-0">
                     <ul class="list-unstyled" style="height:300px; overflow-y:scroll" v-chat-scroll>
-                        <li class="p-2" v-for="(message, index) in messages" :key="index" >
+                        <li class="p-2" v-for="(message, index) in messages" :key="index">
                             <strong>{{ message.user.name }}</strong>
                             {{ message.message }}
                         </li>
@@ -58,7 +58,7 @@
              this.fetchMessages();
              Echo.join('chat')
                  .here(user => {
-                     this.users = user;
+                    this.users = user;
                  })
                  .joining(user => {
                      this.users.push(user);
@@ -67,6 +67,7 @@
                      this.users = this.users.filter(u => u.id != user.id);
                  })
                  .listen('MessageSent',(event) => {
+                    console.log(event);
                      this.messages.push(event.message);
                  })
                  .listenForWhisper('typing', user => {
@@ -83,7 +84,6 @@
              fetchMessages() {
                  axios.get('messages').then(response => {
                      this.messages = response.data;
-                     console.log(this.messages);
                  })
              },
              sendMessage() {
@@ -91,7 +91,6 @@
                      user: this.user,
                      message: this.newMessage
                  });
-                 console.log("message sent", this.messages);
                  axios.post('messages', {message: this.newMessage});
                  this.newMessage = '';
              },

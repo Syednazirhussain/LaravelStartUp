@@ -5290,6 +5290,8 @@ __webpack_require__.r(__webpack_exports__);
         return u.id != user.id;
       });
     }).listen('MessageSent', function (event) {
+      console.log(event);
+
       _this.messages.push(event.message);
     }).listenForWhisper('typing', function (user) {
       _this.activeUser = user;
@@ -5309,7 +5311,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('messages').then(function (response) {
         _this2.messages = response.data;
-        console.log(_this2.messages);
       });
     },
     sendMessage: function sendMessage() {
@@ -5317,7 +5318,6 @@ __webpack_require__.r(__webpack_exports__);
         user: this.user,
         message: this.newMessage
       });
-      console.log("message sent", this.messages);
       axios.post('messages', {
         message: this.newMessage
       });

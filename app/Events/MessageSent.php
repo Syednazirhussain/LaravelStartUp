@@ -37,4 +37,4 @@ class MessageSent implements ShouldBroadcast
         // Presence channel is similar to private channel but having some extra feature to determine who is on the channel
         return new PresenceChannel('chat'); 
     }
-    }
+}

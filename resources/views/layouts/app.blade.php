@@ -55,12 +55,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/chats') }}">Chat</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -80,10 +80,20 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
+        
+        let channel = "notify.mohammadhamza180@gmail.com";
+
+        Echo.channel(channel)
+            .listen('.personal-notification', (e) => {
+                console.log(e);
+            })
+        
         Echo.channel('trades')
             .listen('.new.trade', (e) => {
                 console.log(e);
             })
+        
+
     </script>
 </body>
 </html>

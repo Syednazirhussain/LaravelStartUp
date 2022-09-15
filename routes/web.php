@@ -14,8 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 })->middleware('throttle:5,1');
+
+Route::get('/check', function () {
+
+    return "Nazir";
+});
+
+
+Route::get('/notify', function () {
+
+    $email = "mohammadhamza180@gmail.com";
+    broadcast(new \App\Events\PersonalNotification($email));
+
+    return redirect()->back();
+})->middleware('auth');
 
 Auth::routes();
 
