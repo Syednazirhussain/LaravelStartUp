@@ -36,6 +36,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/downloadPDF', 'HomeController@downloadPDF')->name('user.pdf.download');
+
 Route::get('/author', 'HomeController@author')->name('author');
 // Route::get('/books', 'HomeController@books')->name('books');
 Route::get('/books', 'BookController@index')->name('books');

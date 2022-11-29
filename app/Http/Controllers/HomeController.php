@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Post;
@@ -20,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -30,8 +31,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        broadcast(new \App\Events\NewTrade("some data"));
-        return view('home');
+        // broadcast(new \App\Events\NewTrade("some data"));
+        $totalUser = User::all()->count();
+
+        return view('home', [ "total_users" => $totalUser ]);
+    }
+
+    public function downloadPDF (Request $request) {
+
+        $users = User::select('id', 'name', 'email', 'created_at')->get();
+        $pdf = PDF::loadView('pdf.users.list', [ "users" => $users ]);
+
+        // return $pdf->download('user-list.pdf');
+        return $pdf->stream('user-list.pdf');
+
+        // $pdfStream = $pdf->stream('user-list.pdf');
+        // $pdfFile = $pdf->download('user-list.pdf');
+
+        // return response()->json(["pdf" => $pdfFile], 200);
     }
     
     /**
