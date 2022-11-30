@@ -30,7 +30,7 @@ class BookFactory extends Factory
             'description' => $this->faker->text(45),
             'author_id' => $this->faker->randomElement($authors),
             'book_type' => $types[rand(0,2)],
-            'price' => (mt_rand() / mt_getrandmax())
+            'price' => rand(50, 250)
         ];
     }
 }

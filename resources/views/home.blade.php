@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Total User: &nbsp; {{ $total_users }}</div>
+                <div class="card-header">Total Books: &nbsp; {{ $total_books }}</div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        {{-- <a href="{{ route('user.pdf.download') }}" class="btn btn-primary btn-sm">Download PDF</a> --}}
-                        <a href="javascript:void(0);" id="downloadUserPDF" class="btn btn-primary btn-sm">Download PDF</a>
+                        <a href="{{ route('user.pdf.download') }}" class="btn btn-primary btn-sm">Download PDF</a>
+                        {{-- <a href="javascript:void(0);" id="downloadUserPDF" class="btn btn-primary btn-sm">Download PDF</a> --}}
                         <a href="javascript:void(0);" class="btn btn-primary btn-sm">Email PDF</a>
                     </div>
                 </div>

@@ -32,18 +32,18 @@ class HomeController extends Controller
     public function index()
     {
         // broadcast(new \App\Events\NewTrade("some data"));
-        $totalUser = User::all()->count();
+        $totalBooks = Book::all()->count();
 
-        return view('home', [ "total_users" => $totalUser ]);
+        return view('home', [ "total_books" => $totalBooks ]);
     }
 
     public function downloadPDF (Request $request) {
 
-        $users = User::select('id', 'name', 'email', 'created_at')->get();
-        $pdf = PDF::loadView('pdf.users.list', [ "users" => $users ]);
+        $books = Book::all();
+        $pdf = PDF::loadView('pdf.books.list', [ "books" => $books ]);
 
-        // return $pdf->download('user-list.pdf');
-        return $pdf->stream('user-list.pdf');
+        return $pdf->download('book-list.pdf');
+        // return $pdf->stream('user-list.pdf');
 
         // $pdfStream = $pdf->stream('user-list.pdf');
         // $pdfFile = $pdf->download('user-list.pdf');
@@ -59,7 +59,6 @@ class HomeController extends Controller
     public function exampleHasOneThrough()
     {
         $mechanics = Mechanic::whereId(3)->with('carOwner')->first();
-
         return response()->json($mechanics);
     }
     
